@@ -1,0 +1,19 @@
+<p>Static Htmler content, including the button below</p>
+<button (click)="renderHtmlUsingAppRef()">Render w AppRef</button>
+<button (click)="renderHtmlUsingContainer()">Render w Container</button>
+<p>Captured HTML is below the horizontal line:</p>
+<div style="border: 1px solid red">
+<pre>{{ htmlContents }}</pre>
+</div>
+
+<ng-template #renderTpl let-data='data'>
+  <div>
+    <hr/>
+    <h4>Static rendered content</h4>
+    @for (item of data; track item) {
+      <div>Dynamic content: {{ item }}</div>
+    }
+    <hr/>
+  </div>
+</ng-template>
+
